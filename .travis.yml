@@ -11,10 +11,10 @@ before_deploy:
 - mkdir -p dist/
 - cp build/*.zip build/*.zip.md5 build/addon.xml icon.png dist/
 deploy:
-- provider: s3
+  provider: s3
   access_key_id: AKIAJA536STKTMHCZFZQ
   secret_access_key:
-    secure: bKy8yvM3Gd+dHWyDpXm3MJ9p1LdE8XvYpPPXdm+S24FOBRviYtMEeCMsp2lKZ09NJ7nnnnBraymNTfsusdCJAHUldzTMOD+ocMK12WAanfjgS+ZT84g6TjTQ4e0LOt9UTesWAeQyrATup8USUj70xQ30BouedgyF9hevG4DS1+WSchwPcjQON+y6J+jLRzy1TWFeHvFKdgul9ysTZVIUdJ4uZfZSZMQ3Jj3gR4Arxu7ASD1jHwX/YyNrUidvLE0jGsv+3zN9giLPmz5LkTpCusRkAbwRT7bLtvDOFkf6oBy8E0+6MgzX7Ybl2G2/CmYrdNxM0bBPkGhbrKZRJivBSG0yYp8ZUPFXKir+T4LPbxqouaNZVRNpdd4fIRNjYIFHDuu2laJEQv7pjX2KG7cFTqw0U75Vg/yLi90kpXkAaSvx5rQk4zjtMHm3S31GvsC52IqcCB00RuV7mjlXUkEeB4C25tNa5yw00+7kNGb05krC6m1pE/7fOExvrX2UhwKJnp4eJOpPlWg/DcJDR3tFUsYFHPFw0GywfjS6xQq8KXiykC/wU7no8GEVlPp4BqTX0ycMf8Mxi/yb4DvwiTKkRTq2+i/36HUlpB6aGTgGaNbI92K5Q/nV1bVhwfsw+jwiXglnTxbsANCdEqzxcH9f5HhirDeFioxvR8McIRFpEeQ=
+    secure: KreMQZF4Z1HLs55elTqX1s92lo3vlNT9lF7J/b0IJiUJKEavyb10eEITAj0jgxv3f1XQOZ4KIExryYt7Pwrt4NvK3k+7UB9RcRmmbvJwh7DYUmOOi7HDgIF3svXtzkBZtotcX25afaldFWtqwXSQT3p8SsuHi5ZgfiPkPeqhXzo6OL6Jhtm1ljMPvghd+ORas9HZ2pL4gajFtE7JYR00ROGVEBz1QGkSRRC7jr8/ckSQgD84hHmyOPo8IHwFLMJaoNOc76uzuFp8T4h2XinHJeJaLJogwTqe8RwHz23TC1T4FIXiAoFUWN22YddbDpYgqLRq1j1iLmy0uGqzLUVtCCozbJrAvNDq2++6azMcnUCbltizoOj620dkEtZ6X/Tha7nxUM76DjawA777LpW3T61EErEuaqlWLegGWovSUt5bhzlLw5up5E2hGnmsPoUnZTMeNh3gPDaltNIchnhj7dKb/AKO02l3TsZ546Js2MlTEAOd98siqqK0DHj5n0fE307cw1IrdTK//sZCsIAfkP13WtoWNyFV/dyPf+/3rff0UIVuJ90rzi32jGkzzHvN3WfPbUTGtxQczJEWDV+A8JZbrGp/8gt4pmi2aRqHIjhPBRwxzRqXVEBfpK47VC75O5kSGe7dbOzYXf4YT0MutvYEjZo4pwHDiqxC/YTzLUM=
   bucket: xbmc.beardypig.plugins
   local-dir: dist
   upload-dir: addons/script.module.pycountry
@@ -22,13 +22,7 @@ deploy:
   on:
     repo: beardypig/script.module.pycountry
     tags: true
-- provider: releases
-  api_key:
-    secure: bXukTBALHxPJBvY/pVEHCx74xqFRubBgmOqLBvUFSfySGDUcJ+7MsDszPSYoTZoA9CUvUjvLbuzBtaJ2Xc5DB8rtSClwThUFc+cmlWWuI3xGLfZ7OYapZOYIWXMsFBgABz6iwcQWR0u20vpIX7Lq86+TPR0zozH36eMbyvnJNLM84FLMU9WT6ieHkcXwxqBUuHFkVzpB0kw1aNwf2x/5poy86u+S44M17MsDHaaS/unwSTmL0oMMOVntpeNoKmll0BTx6VMnxxilTv03SXBdKenTu++41VBAvLer7QQBroIeSN60EuBdBs0soVnbvezvWNmJDVBrQyKpV6QRO2CxEGORRcwyAicHNG5lsU4kbT6B+QvuaRMkOiO8c4gRsuQYFYeO6xrZTK5W5gQ0HmS3T8EX8QcFuchiInwBVb7CF6fdNdXyA5HXsxKu4TSKOnYpvSKi1JbL1FMOfVVGJGW8ZuOvGMV9v95+zINHLeHzRjYzYOTft3cnVYZU5HgWXNIEBx/JzVc9jNezB0jMHjRw5XUXOUWIJ/hoTRDKSPwPQpZie1y+BLMnY7fgvVpTVHOUUe2nECa6uTNnmRK5vPf9ZcVp4XiSAK7t8eHiVyDSNNDCMFjKn51U/Z545wrtrT/WbQvgE6u8AK6mQxBHjH2Pkznm0QWFR8rfr2RFetzrL54=
-  file: $TRAVIS_BUILD_DIR/build/script.module.pycountry-$TRAVIS_TAG.zip
-  on:
-    repo: beardypig/script.module.pycountry
-    tags: true
+
 after_deploy:
 - gem install travis
 - curl -LO https://raw.github.com/mernst/plume-lib/master/bin/trigger-travis.sh
